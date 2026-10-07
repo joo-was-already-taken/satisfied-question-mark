@@ -1,9 +1,7 @@
 {
   description = "Satisfied?";
 
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-  outputs = { ... }: rec {
+  outputs = { self }: rec {
     overlays.default = overlays.lazycontainer;
     overlays.lazycontainer = final: prev: {
       lazycontainer = prev.lazydocker.overrideAttrs (prevAttrs: {
